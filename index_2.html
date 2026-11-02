@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mohamed Hassan - Data Entry Specialist in Cairo, Egypt. Fast, accurate data entry, Excel cleanup, CRM updates and document conversion.">
+<meta property="og:title" content="Mohamed Hassan - Data Entry Specialist">
+<meta property="og:description" content="Fast, accurate data entry, Excel & Google Sheets cleanup, CRM updates and PDF conversion.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Mohamed Hassan Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a single clean column read like a well-kept spreadsheet — cell addresses label sections, a live data-cleaning demo is the centerpiece. */
+:root{
+  --bg:#f6f8fb; --surface:#ffffff; --grid:#dfe5ee; --ink:#15202e; --muted:#5a6878;
+  --accent:#1d5fd6; --accent-soft:#e6eefc; --good:#1c8a55; --good-soft:#e3f4ea; --bad:#b4382c; --bad-soft:#fbe9e6;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141b; --surface:#161d27; --grid:#2a3443; --ink:#e7edf5; --muted:#9aa8b9;
+  --accent:#6f9cf5; --accent-soft:#1c2a44; --good:#5cc98f; --good-soft:#15301f; --bad:#ef8a7e; --bad-soft:#3a1d19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --surface:#161d27; --grid:#2a3443; --ink:#e7edf5; --muted:#9aa8b9;
+  --accent:#6f9cf5; --accent-soft:#1c2a44; --good:#5cc98f; --good-soft:#15301f; --bad:#ef8a7e; --bad-soft:#3a1d19; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+.cell{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--accent);background:var(--accent-soft);padding:2px 7px;border-radius:3px;display:inline-block}
+section{display:flex;flex-direction:column;gap:18px}
+section>header{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--grid);padding-bottom:10px}
+section>header h2{font-size:22px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end}
+.hero .eyebrow{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,7vw,64px);font-weight:800;letter-spacing:-.02em;margin:8px 0 6px}
+.hero h1 span{color:var(--accent)}
+.hero p{max-width:60ch;color:var(--muted);margin:0}
+.formula{font-family:var(--mono);font-size:13px;background:var(--surface);border:1px solid var(--grid);border-radius:6px;padding:10px 14px;color:var(--ink);white-space:nowrap}
+.formula b{color:var(--accent);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--grid);border-radius:8px;background:var(--surface);overflow:hidden}
+.stats div{padding:14px 16px;border-right:1px solid var(--grid)}
+.stats div:last-child{border-right:0}
+.stats strong{font-family:var(--display);font-size:26px;display:block;font-variant-numeric:tabular-nums}
+.stats span{font-size:14px;color:var(--muted)}
+
+/* sheet table */
+.sheet-scroll{overflow-x:auto;border:1px solid var(--grid);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border-bottom:1px solid var(--grid);border-right:1px solid var(--grid);padding:9px 12px;text-align:left;vertical-align:top}
+th:last-child,td:last-child{border-right:0}
+tr:last-child td{border-bottom:0}
+thead th{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted);background:var(--bg);letter-spacing:.05em}
+td.rn{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--bg);width:36px;text-align:center}
+td.k{font-weight:600;white-space:nowrap}
+
+/* demo */
+.demo{background:var(--surface);border:1px solid var(--grid);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.demo-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.demo-bar p{margin:0;color:var(--muted);font-size:15px;max-width:52ch}
+button{font:600 15px var(--body);border-radius:6px;padding:9px 16px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--surface)}
+button.ghost{background:transparent;color:var(--accent)}
+button:focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+td.dirty{background:var(--bad-soft);color:var(--bad)}
+td.fixed{background:var(--good-soft);color:var(--good)}
+tr.dupe td{text-decoration:line-through;opacity:.55}
+.log{font-family:var(--mono);font-size:13px;color:var(--muted);min-height:1.5em}
+
+/* experience */
+.timeline{display:flex;flex-direction:column;gap:22px}
+.job{display:grid;grid-template-columns:170px 1fr;gap:18px}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px}
+.job h3{font-size:18px}
+.job .org{color:var(--accent);font-weight:600;font-size:15px}
+.job ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--grid);background:var(--surface);border-radius:999px;padding:5px 13px;font-size:15px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.two>div{min-width:0;display:flex;flex-direction:column;gap:10px}
+.two h3{font-size:16px;color:var(--muted);font-family:var(--mono);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.two ul{margin:0;padding-left:18px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.ct{background:var(--surface);border:1px solid var(--grid);border-radius:8px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px;align-items:center;min-width:0}
+.ct div{min-width:0}
+.ct small{display:block;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.ct .v{font-weight:600;overflow-wrap:anywhere;user-select:all}
+.ct a{color:var(--accent)}
+.ct button{padding:6px 12px;font-size:13px}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--grid);padding-top:16px}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr}
+  .formula{white-space:normal}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(-n+2){border-bottom:1px solid var(--grid)}
+  .job{grid-template-columns:1fr;gap:4px}
+  .two,.contact{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){td{transition:background .3s,color .3s}}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--grid)}
+.nav-in{max-width:960px;margin:0 auto;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--display);font-weight:800;font-size:17px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.brand i{font-style:normal;font-family:var(--mono);font-size:11px;background:var(--accent);color:var(--surface);border-radius:3px;padding:2px 5px}
+.nav-links{display:flex;gap:18px;margin-left:auto}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:600}
+.nav-links a:hover{color:var(--accent)}
+.btn{display:inline-block;font:600 15px var(--body);border-radius:6px;padding:9px 16px;text-decoration:none;border:1px solid var(--accent);background:var(--accent);color:var(--surface)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:focus-visible,.nav-links a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--good);background:var(--good-soft);border-radius:999px;padding:4px 12px}
+.avail::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--good)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.svc{background:var(--surface);border:1px solid var(--grid);border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.svc .tag{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.svc h3{font-size:17px}
+.svc p{margin:0;color:var(--muted);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--grid);border-radius:8px;background:var(--surface);overflow:hidden}
+.step{padding:16px 18px;border-right:1px solid var(--grid);display:flex;flex-direction:column;gap:6px;min-width:0}
+.step:last-child{border-right:0}
+.step b{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.step h3{font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.hire{background:var(--accent);color:var(--surface);border-radius:10px;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.hire h2{font-size:24px}
+.hire p{margin:4px 0 0;opacity:.9}
+.hire .btn{background:var(--surface);color:var(--accent);border-color:var(--surface)}
+html{scroll-behavior:smooth}
+section{scroll-margin-top:72px}
+@media (max-width:720px){
+  .nav-links{display:none}
+  .nav .btn{margin-left:auto}
+  .services{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
+  .step:nth-child(-n+2){border-bottom:1px solid var(--grid)}
+}
+@media (max-width:860px) and (min-width:721px){.services{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="nav-in">
+  <a class="brand" href="#top"><i>MH</i>Mohamed Hassan</a>
+  <div class="nav-links"><a href="#services">Services</a><a href="#demo">Demo</a><a href="#skills">Skills</a><a href="#experience">Experience</a></div>
+  <a class="btn" href="#contact">Hire me</a>
+</div></nav>
+<div class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <span class="avail">Available for work</span>
+      <div class="eyebrow" style="margin-top:12px">Cairo, Egypt · Remote, freelance or full-time</div>
+      <h1>Mohamed Hassan<br><span>Data Entry Specialist</span></h1>
+      <p>I enter, clean and organize data so teams can trust it. A Computer &amp; Information Systems graduate with 2+ years of hands-on work structuring databases, building validated input forms and keeping records accurate for real clients.</p>
+      <div class="cta"><a class="btn" href="#contact">Contact me</a><a class="btn ghost" href="#demo">See my work in action</a><a class="btn ghost" href="https://drive.google.com/file/d/1r8zZvNbi4VH-xFHvHxvNH6Iw49-xsjGU/view?usp=sharing" target="_blank" rel="noopener">View my CV</a></div>
+    </div>
+    <div class="formula" aria-label="Spreadsheet formula">=ACCURACY(<b>speed</b>, <b>detail</b>)</div>
+  </div>
+
+  <div class="stats">
+    <div><strong>40+</strong><span>words per minute</span></div>
+    <div><strong>6+</strong><span>client projects delivered</span></div>
+    <div><strong>1,000+</strong><span>app installs from published work</span></div>
+    <div><strong>200+</strong><span>timed problems solved (ICPC)</span></div>
+  </div>
+
+  <section id="services">
+    <header><span class="cell">A1</span><h2>What I can do for you</h2></header>
+    <div class="services">
+      <div class="svc"><span class="tag">Input</span><h3>Data entry</h3><p>Fast, accurate entry from forms, invoices, receipts and handwritten or scanned documents.</p></div>
+      <div class="svc"><span class="tag">Spreadsheets</span><h3>Excel &amp; Sheets cleanup</h3><p>Remove duplicates, fix formats, build formulas, lookups and pivot-table summaries.</p></div>
+      <div class="svc"><span class="tag">Conversion</span><h3>PDF to Excel / Word</h3><p>Turn PDFs and images into clean, editable spreadsheets and documents.</p></div>
+      <div class="svc"><span class="tag">CRM</span><h3>CRM record updates</h3><p>Add, update and organize customer and lead records so your team can find them.</p></div>
+      <div class="svc"><span class="tag">Catalogs</span><h3>Product listings</h3><p>Upload products with titles, prices, categories and images to stores and marketplaces.</p></div>
+      <div class="svc"><span class="tag">Admin</span><h3>Reports &amp; documents</h3><p>Format reports, organize files and folders, and keep confidential data secure.</p></div>
+    </div>
+  </section>
+
+  <section id="process">
+    <header><span class="cell">A2</span><h2>How I work</h2></header>
+    <div class="steps">
+      <div class="step"><b>STEP 1</b><h3>Understand</h3><p>Confirm the format, fields, volume and deadline before I start.</p></div>
+      <div class="step"><b>STEP 2</b><h3>Enter</h3><p>Input the data carefully using a consistent template.</p></div>
+      <div class="step"><b>STEP 3</b><h3>Verify</h3><p>Check every row for typos, duplicates and missing values.</p></div>
+      <div class="step"><b>STEP 4</b><h3>Deliver</h3><p>Send a clean file on time, with a short summary of what changed.</p></div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <header><span class="cell">A3</span><h2>See how I clean a messy sheet</h2></header>
+    <div class="demo">
+      <div class="demo-bar">
+        <p>Sample records with typical entry mistakes: stray spaces, wrong casing, mixed phone and date formats, and a duplicate row. Press <b>Clean data</b> to apply the checks I run on every dataset.</p>
+        <div class="btns"><button id="cleanBtn" type="button">Clean data</button><button id="resetBtn" type="button" class="ghost">Reset</button></div>
+      </div>
+      <div class="sheet-scroll">
+        <table id="demoTable" aria-live="polite">
+          <thead><tr><th></th><th>A · NAME</th><th>B · CITY</th><th>C · PHONE</th><th>D · EMAIL</th><th>E · DATE</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="log" id="log">Example data only. 5 rows loaded, issues highlighted in red.</div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <header><span class="cell">B1</span><h2>Skills</h2></header>
+    <div class="sheet-scroll">
+      <table>
+        <thead><tr><th></th><th>AREA</th><th>WHAT I DO</th></tr></thead>
+        <tbody>
+          <tr><td class="rn">1</td><td class="k">Data entry</td><td>Fast, accurate typing at 40+ WPM; high-volume input from forms, invoices and documents</td></tr>
+          <tr><td class="rn">2</td><td class="k">Spreadsheets</td><td>Excel and Google Sheets: formulas, VLOOKUP, pivot tables, sorting, filtering, conditional formatting</td></tr>
+          <tr><td class="rn">3</td><td class="k">Data quality</td><td>Validation, cleansing, de-duplication, verification and consistent formatting</td></tr>
+          <tr><td class="rn">4</td><td class="k">MS Office</td><td>Word, Excel, PowerPoint, Outlook; Google Workspace</td></tr>
+          <tr><td class="rn">5</td><td class="k">CRM &amp; databases</td><td>CRM record management, Firebase Firestore, SQLite</td></tr>
+          <tr><td class="rn">6</td><td class="k">Tools</td><td>Python for data processing, Postman, Git, Figma</td></tr>
+          <tr><td class="rn">7</td><td class="k">Admin</td><td>Document management, reporting, file organization, handling confidential data</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="experience">
+    <header><span class="cell">C1</span><h2>Experience</h2></header>
+    <div class="timeline">
+      <div class="job"><div class="when">Jan 2024 – Present</div><div>
+        <h3>Freelance Developer &amp; Data Specialist</h3><div class="org">Mostaql.com · Cairo</div>
+        <ul>
+          <li>Managed records, requirements and deliverables for 6+ client projects, meeting agreed deadlines.</li>
+          <li>Structured and maintained databases for product catalogs, user accounts and listings.</li>
+          <li>Built input forms with validation rules; helped cut bug frequency by about 30%.</li>
+          <li>Automated repetitive release tasks, reducing release time by about 40%.</li>
+        </ul></div></div>
+      <div class="job"><div class="when">Aug 2023 – Oct 2023</div><div>
+        <h3>Mobile Developer Intern</h3><div class="org">Intern2Grow · Remote</div>
+        <ul>
+          <li>Delivered 3 production projects in 3 months while processing data from external APIs.</li>
+          <li>Awarded top-tier internship certification.</li>
+        </ul></div></div>
+      <div class="job"><div class="when">Nov 2021 – May 2023</div><div>
+        <h3>Competitive Programmer</h3><div class="org">ICPC Minya University Community</div>
+        <ul><li>Solved 200+ timed analytical problems, building accuracy and focus under pressure.</li></ul>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <header><span class="cell">D1</span><h2>Selected work</h2></header>
+    <div class="sheet-scroll">
+      <table>
+        <thead><tr><th></th><th>PROJECT</th><th>DATA WORK</th><th>STATUS</th></tr></thead>
+        <tbody>
+          <tr><td class="rn">1</td><td class="k">Saboba marketplace</td><td>Organized a large product catalog with categories, filters and location-based search</td><td>Live on Google Play &amp; App Store</td></tr>
+          <tr><td class="rn">2</td><td class="k">Bookly</td><td>Retrieved, cleaned and structured book records from the Google Books API</td><td>Completed</td></tr>
+          <tr><td class="rn">3</td><td class="k">Shapeometry</td><td>Puzzle game with level data and progressive difficulty</td><td>Live on Google Play</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="education">
+    <header><span class="cell">E1</span><h2>Education &amp; certificates</h2></header>
+    <div class="two">
+      <div><h3>Education</h3>
+        <ul>
+          <li><b>B.Sc. Computer and Information Systems</b><br>Minya University, 2020 – 2024</li>
+          <li><b>Professional Training</b><br>Digital Egypt Pioneers Initiative (DEPI / MCIT), 2024</li>
+        </ul></div>
+      <div><h3>Certificates &amp; languages</h3>
+        <ul>
+          <li>Software Development Track, DEPI / MCIT (2024)</li>
+          <li>Internship Certification, Intern2Grow</li>
+          <li>Udemy: Flutter Advanced (2024), Kotlin (2023)</li>
+          <li>Arabic native · English professional (Business English Certified, DEPI)</li>
+        </ul></div>
+    </div>
+    <div class="chips" aria-label="Strengths">
+      <span class="chip">Attention to detail</span><span class="chip">Time management</span><span class="chip">Reliable with deadlines</span><span class="chip">Confidentiality</span><span class="chip">Clear communication</span>
+    </div>
+  </section>
+
+  <div class="hire"><div><h2>Need accurate data, on time?</h2><p>Send me your task and I'll reply with a clear plan and a quote.</p></div><a class="btn" href="#contact">Get in touch</a></div>
+
+  <section id="contact">
+    <header><span class="cell">F1</span><h2>Contact</h2></header>
+    <div class="contact">
+      <div class="ct"><div><small>Email</small><span class="v">mohassen011@gmail.com</span></div><button type="button" data-copy="mohassen011@gmail.com">Copy</button></div>
+      <div class="ct"><div><small>Phone / WhatsApp</small><span class="v">+20 100 508 3126</span></div><button type="button" data-copy="+201005083126">Copy</button></div>
+      <div class="ct"><div><small>LinkedIn</small><a class="v" href="https://linkedin.com/in/mohamed-hassan-6600782b4" target="_blank" rel="noopener">mohamed-hassan-6600782b4</a></div></div>
+      <div class="ct"><div><small>GitHub</small><a class="v" href="https://github.com/MohameHassan139" target="_blank" rel="noopener">MohameHassan139</a></div></div>
+      <div class="ct"><div><small>CV / Resume</small><a class="v" href="https://drive.google.com/file/d/1r8zZvNbi4VH-xFHvHxvNH6Iw49-xsjGU/view?usp=sharing" target="_blank" rel="noopener">View CV on Google Drive</a></div></div>
+      <div class="ct"><div><small>Portfolio</small><a class="v" href="https://mohamehassan139.github.io" target="_blank" rel="noopener">mohamehassan139.github.io</a></div></div>
+    </div>
+  </section>
+
+  <footer style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><span>Mohamed Hassan · Data Entry Specialist · Cairo, Egypt</span><a href="#top" style="color:var(--accent)">Back to top</a></footer>
+</div>
+
+<script>
+const raw=[
+  ["  ahmed SALEH","cairo","01005551234","Ahmed.Saleh@MAIL.com ","3/7/2026"],
+  ["mona   adel","ALEXANDRIA ","+20 122 555 9876","mona.adel@mail.com","2026-07-04"],
+  ["Omar Farouk","Giza","0111-555-4433"," omar.f@mail.com","04.07.2026"],
+  ["  ahmed SALEH","cairo","01005551234","Ahmed.Saleh@MAIL.com ","3/7/2026"],
+  ["sara nabil ","minya","1065554321","SARA.N@mail.com","July 5 2026"]
+];
+const tc=s=>s.trim().replace(/\s+/g," ").toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+const phone=s=>{let d=s.replace(/\D/g,"");if(d.startsWith("20"))d=d.slice(2);if(!d.startsWith("0"))d="0"+d;return "+20 "+d.slice(1,4)+" "+d.slice(4,7)+" "+d.slice(7)};
+const months={january:1,february:2,march:3,april:4,may:5,june:6,july:7,august:8,september:9,october:10,november:11,december:12};
+const date=s=>{s=s.trim();let y,m,d,r;
+  if(r=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/))[y,m,d]=[r[1],r[2],r[3]];
+  else if(r=s.match(/^(\d{1,2})[\/.](\d{1,2})[\/.](\d{4})$/))[d,m,y]=[r[1],r[2],r[3]];
+  else if(r=s.match(/^([A-Za-z]+)\s+(\d{1,2})\s+(\d{4})$/))[m,d,y]=[months[r[1].toLowerCase()],r[2],r[3]];
+  else return s;
+  return `${y}-${String(m).padStart(2,"0")}-${String(d).padStart(2,"0")}`};
+const fixers=[tc,tc,phone,s=>s.trim().toLowerCase(),date];
+const tbody=document.querySelector("#demoTable tbody"),log=document.getElementById("log");
+function render(clean){
+  tbody.innerHTML="";const seen=new Set();let changed=0,dupes=0;
+  raw.forEach((row,i)=>{
+    const fixed=row.map((v,j)=>fixers[j](v));const key=fixed.join("|");const isDupe=seen.has(key);seen.add(key);
+    const tr=document.createElement("tr");if(clean&&isDupe){tr.className="dupe";dupes++}
+    const rn=document.createElement("td");rn.className="rn";rn.textContent=i+2;tr.appendChild(rn);
+    row.forEach((v,j)=>{const td=document.createElement("td");const bad=fixed[j]!==v;
+      if(clean){td.textContent=fixed[j];if(bad){td.className="fixed";changed++}}
+      else{td.textContent=v;if(bad||isDupe)td.className="dirty"}
+      tr.appendChild(td)});
+    tbody.appendChild(tr)});
+  log.textContent=clean?`Done: ${changed} cells corrected, ${dupes} duplicate row flagged for removal. Names title-cased, phones in +20 format, emails lowercased, dates ISO (YYYY-MM-DD).`
+    :"Example data only. 5 rows loaded, issues highlighted in red.";
+}
+render(false);
+document.getElementById("cleanBtn").onclick=()=>render(true);
+document.getElementById("resetBtn").onclick=()=>render(false);
+document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>{
+  const t=b.dataset.copy;
+  navigator.clipboard.writeText(t).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1500)})
+  .catch(()=>{const v=b.parentElement.querySelector(".v");const r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r)});
+}));
+</script>
+
+</body>
+</html>
